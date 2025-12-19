@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .contact-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 32px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 12px 12px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .form-group label {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      color: #ccc;
+      pointer-events: none;
+      transition: 0.2s ease all;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 10px;
+      font-size: 12px;
+      color: #f1faee;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0 5px;
+      border-radius: 5px;
+    }
+
+    .error {
+      font-size: 13px;
+      color: #ff6b6b;
+      margin-top: 5px;
+    }
+
+    button {
+      padding: 12px;
+      background: #e63946;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #d62839;
+    }
+
+    .success-message {
+      text-align: center;
+      color: #38b000;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <form id="contactForm" novalidate>
+      <div class="form-group">
+        <input type="text" id="name" placeholder=" " required />
+        <label for="name">Your Name</label>
+        <div class="error" id="nameError"></div>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder=" " required />
+        <label for="email">Your Email</label>
+        <div class="error" id="emailError"></div>
+      </div>
+      <div class="form-group">
+        <textarea id="message" rows="4" placeholder=" " required></textarea>
+        <label for="message">Your Message</label>
+        <div class="error" id="messageError"></div>
+      </div>
+      <button type="submit">Send</button>
+      <div class="success-message" id="successMessage">✅ Message sent successfully!</div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const messageError = document.getElementById("messageError");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Reset errors
+      nameError.textContent = "";
+      emailError.textContent = "";
+      messageError.textContent = "";
+      successMessage.style.display = "none";
+
+      let hasError = false;
+
+      if (nameInput.value.trim() === "") {
+        nameError.textContent = "Name is required";
+        hasError = true;
+      }
+
+      if (emailInput.value.trim() === "") {
+        emailError.textContent = "Email is required";
+        hasError = true;
+      } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+        emailError.textContent = "Enter a valid email address";
+        hasError = true;
+      }
+
+      if (messageInput.value.trim() === "") {
+        messageError.textContent = "Message cannot be empty";
+        hasError = true;
+      }
+
+      if (!hasError) {
+        successMessage.style.display = "block";
+
+        // Simulate sending (e.g., AJAX call here if needed)
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
+

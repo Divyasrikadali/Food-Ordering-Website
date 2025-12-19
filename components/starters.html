@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Starters</title>
+
+<style>
+body {
+  margin: 0;
+  background-image: url("starters.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  border-radius: 50px;
+  z-index: 3000;
+  padding: 12px 25px;
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.5);
+}
+
+#navcontent {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+#navcontent li a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 8px 18px;
+  transition: 0.3s;
+  border-radius: 12px;
+}
+
+#navcontent li a:hover,
+#navcontent li a.active {
+  background: #00ff1a;
+  color: black;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 90px;
+}
+
+.menu-item {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 2px solid white;
+  border-radius: 50px;
+  background: rgba(0,0,0,0.3);
+}
+
+button {
+  margin-top: 15px;
+  border: 3px solid white;
+  border-radius: 15px;
+  background-color: rgb(15, 238, 56);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: red;
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #050303;
+  width: 420px;
+  margin: 8% auto;
+  padding: 30px;
+  border-radius: 20px;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  float: right;
+  font-size: 26px;
+  color: red;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: none;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #43cea2, #185a9d);
+  color: white;
+}
+
+/* ---------- SUCCESS ---------- */
+#success {
+  display: none;
+  text-align: center;
+  font-size: 22px;
+  color: #00ff88;
+  margin-top: 15px;
+  animation: fade 1s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+<ul id="navcontent">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="starters.html" class="active">Starters</a></li>
+  <li><a href="biryani.html">Biryani's</a></li>
+  <li><a href="desserts.html">Desserts</a></li>
+  <li><a href="snacks.html">Snack Items</a></li>
+  <li><a href="contact.html">ContactUs</a></li>
+</ul>
+</nav>
+
+<h1>Menu</h1>
+
+<!-- MENU ITEMS -->
+<div class="menu-item"><h2>Chicken Lollipop</h2><p>Price: 300</p><button onclick="openForm('Chicken Lollipop',300)">Order Now</button></div>
+<div class="menu-item"><h2>Chicken Manchuria</h2><p>Price: 239</p><button onclick="openForm('Chicken Manchuria',239)">Order Now</button></div>
+<div class="menu-item"><h2>Veg Manchuria</h2><p>Price: 199</p><button onclick="openForm('Veg Manchuria',199)">Order Now</button></div>
+<div class="menu-item"><h2>Chicken Majestic</h2><p>Price: 349</p><button onclick="openForm('Chicken Majestic',349)">Order Now</button></div>
+<div class="menu-item"><h2>Ginger Chicken</h2><p>Price: 250</p><button onclick="openForm('Ginger Chicken',250)">Order Now</button></div>
+<div class="menu-item"><h2>Garlic Chicken</h2><i><p>Price: 250/-</p></i><button onclick="openForm('Garlic Chicken',250)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Pepper Chicken</h2><i><p>Price: 279/-</p></i><button onclick="openForm('Pepper Chicken',279)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Crispy Fried Chicken</h2><i><p>Price: 299/-</p></i><button onclick="openForm('Crispy Fried Chicken',299)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Chicken Drum Stick</h2><i><p>Price: 299/-</p></i><button onclick="openForm('Chicken Drum Stick',299)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Kaju Nut Chicken</h2><i><p>Price: 229/-</p></i><button onclick="openForm('Kaju Nut Chicken',229)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Chilli Prawns</h2><i><p>Price: 399/-</p></i><button onclick="openForm('Chilli Prawns',399)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Crispy Corn</h2><i><p>Price: 230/-</p></i><button onclick="openForm('Crispy Corn',230)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Paneer 65</h2><i><p>Price: 279/-</p></i><button onclick="openForm('Paneer 65',279)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Mushroom 65</h2><i><p>Price: 249/-</p></i><button onclick="openForm('Mushroom 65',249)">Order Now</button></div><br>
+  <div class="menu-item"><h2>Egg Manchuria</h2><i><p>Price: 199/-</p></i><button onclick="openForm('Egg Manchuria',199)">Order Now</button></div><br>
+
+<!-- ---------- ORDER FORM ---------- -->
+<div id="orderForm" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeForm()">&times;</span>
+
+
+
+<form id="form">
+<input type="text" id="itemName" readonly>
+
+<label>Price</label>
+<input type="number" id="price" readonly>
+
+<label>Quantity</label>
+<input type="number" id="qty" value="1" min="1" onchange="calcTotal()">
+
+<label>Total Amount</label>
+<input type="number" id="total" readonly>
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="mobile" placeholder="Mobile Number" required>
+<textarea name="address" placeholder="Delivery Address" required></textarea>
+
+<select name="payment" required>
+  <option value="">Select Payment</option>
+  <option>Online</option>
+  <option>Cash on Delivery</option>
+</select>
+
+<button type="submit" class="submit-btn">Confirm Order</button>
+</form>
+
+<div id="success">✅ Order Placed Successfully!</div>
+</div>
+</div>
+
+<script>
+let itemPrice = 0;
+
+function openForm(item, price) {
+  document.getElementById("orderForm").style.display = "block";
+  document.getElementById("itemName").value = item;
+  document.getElementById("price").value = price;
+  itemPrice = price;
+  calcTotal();
+}
+
+function closeForm() {
+  document.getElementById("orderForm").style.display = "none";
+}
+
+function calcTotal() {
+  const qty = document.getElementById("qty").value;
+  document.getElementById("total").value = qty * itemPrice;
+}
+
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  document.getElementById("success").style.display = "block";
+
+  setTimeout(() => {
+    document.getElementById("success").style.display = "none";
+    closeForm();
+    this.reset();
+  }, 2000);
+});
+</script>
+
+</body>
+</html>
